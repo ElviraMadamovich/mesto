@@ -1,10 +1,16 @@
 .popup__name {
     all: unset;
-    min-width: 358px;
+    width: 100%;
     margin: 0;
     color: rgba(0, 0, 0, 1);
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
     border: none;
+}
+
+@media screen and (max-width: 500px) {
+    .popup__name {
+        margin: 0 0 13px 0;
+    }
 }

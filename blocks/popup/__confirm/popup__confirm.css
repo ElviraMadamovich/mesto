@@ -1,6 +1,7 @@
 .popup__confirm {
+    all: unset;
     margin: 18px 0 37px 0;
-    min-width: 358px;
+    width: 100%;
     min-height: 50px;
     font-weight: 400;
     font-size: 18px;
@@ -9,6 +10,7 @@
     background-color: rgba(0, 0, 0, 1);
     border-radius: 2px;
     cursor: pointer;
+    text-align: center;
 }
 
 .popup__confirm:hover {
@@ -18,8 +20,8 @@
 
 @media screen and (max-width: 500px) {
     .popup__confirm {
-        max-width: 238px;
         font-size: 14px;
         line-height: 17px;
+        margin: 45px 0 25px 0;
     }
 }
