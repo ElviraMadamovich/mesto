@@ -1,0 +1,5 @@
+.popup__field_active {
+    transform: translate(0) scale(1);
+    transition: 0.2s all;
+    width: 100%;
+}

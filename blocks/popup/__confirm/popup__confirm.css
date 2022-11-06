@@ -1,0 +1,25 @@
+.popup__confirm {
+    margin: 18px 0 37px 0;
+    min-width: 358px;
+    min-height: 50px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21.78px;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 0, 0, 1);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.popup__confirm:hover {
+    opacity: 0.8;
+    transition: 0.2s;
+}
+
+@media screen and (max-width: 500px) {
+    .popup__confirm {
+        max-width: 238px;
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

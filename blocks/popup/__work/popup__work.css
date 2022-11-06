@@ -1,0 +1,9 @@
+.popup__work {
+    all: unset;
+    min-width: 358px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.94px;
+    border: 0;
+    color: rgba(0, 0, 0, 1);
+}

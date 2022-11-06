@@ -1,0 +1,15 @@
+.elements__pic {
+  max-width: 282px;
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 1);
+  position: relative;
+}
+
+@media screen and (max-width: 500px) {
+  .elements__pic {
+    grid-column: 1;
+    width: 100%;
+  }
+}

@@ -1,0 +1,12 @@
+.profile__author {
+    margin: 0 244px 0 40px;
+    padding: 0;
+    max-width: 294px;
+}
+
+@media screen and (max-width: 500px) {
+    .profile__author {
+        max-width: 282px;
+        margin: 0;
+    }
+}
