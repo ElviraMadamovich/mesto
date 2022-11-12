@@ -18,11 +18,11 @@
             <div class="profile__author">
                 <div class="profile__name">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
-                    <button class="profile__edit" name="addbutton" value="addbutton"></button>
+                    <button type="button" class="profile__edit" name="addbutton"></button>
                 </div>
                 <p class="profile__subtitle">Исследователь океана</p>
             </div>
-            <button class="profile__button" name="addbutton" value="addbutton"></button>
+            <button type="button" class="profile__button" name="addbutton"></button>
         </section>
         <section class="elements">
             <ul class="elements__pics">
@@ -30,64 +30,67 @@
                     <img class="elements__image" src="images/kaspijskoe-more.jpg" alt="Каспийское море">
                     <div class="elements__title">
                         <h2 class="elements__name">Каспийское море</h2>
-                        <button class="elements__like"></button>
+                        <button type="button" class="elements__like"></button>
                     </div>
                 </li>
                 <li class="elements__pic">
                     <img class="elements__image" src="images/barentsevo_more.jpg" alt="Баренцево море">
                     <div class="elements__title">
                         <h2 class="elements__name">Баренцево море</h2>
-                        <button class="elements__like"></button>
+                        <button type="button" class="elements__like"></button>
                     </div>
                 </li>
                 <li class="elements__pic">
                     <img class="elements__image" src="images/yaponskoye_more.jpg" alt="Японское море">
                     <div class="elements__title">
                         <h2 class="elements__name">Японское море</h2>
-                        <button class="elements__like"></button>
+                        <button type="button" class="elements__like"></button>
                     </div>
                 </li>
                 <li class="elements__pic">
                     <img class="elements__image" src="images/chernoye_more.jpg" alt="Черное море">
                     <div class="elements__title">
                         <h2 class="elements__name">Чёрное море</h2>
-                        <button class="elements__like"></button>
+                        <button type="button" class="elements__like"></button>
                     </div>
                 </li>
                 <li class="elements__pic">
                     <img class="elements__image" src="images/baltiyskoye_more.jpg" alt="Балтийское море">
                     <div class="elements__title">
                         <h2 class="elements__name">Балтийское море</h2>
-                        <button class="elements__like"></button>
+                        <button type="button" class="elements__like"></button>
                     </div>
                 </li>
                 <li class="elements__pic">
                     <img class="elements__image" src="images/okhotskoye_more.jpg" alt="Охотское море">
                     <div class="elements__title">
                         <h2 class="elements__name">Охотское море</h2>
-                        <button class="elements__like"></button>
+                        <button type="button" class="elements__like"></button>
                     </div>
                 </li>
             </ul>
-        </section>
-        <section class="popup">
-            <div class="popup__field">
-                <button class="popup__close"></button>
-                <fieldset class="popup__body">
-                    <h2 class="popup__order">Редактировать профиль</h2>
-                    <input type='text' class="popup__name" id="title" name="title" placeholder="Жак-Ив Кусто">
-                    <div class="popup__border"></div>
-                    <input type='text' class="popup__work" id="title1" name="title1" placeholder="Исследователь океана">
-                    <div class="popup__border"></div>
-                    <button class="popup__confirm">Сохранить</button>
-                </fieldset>
-            </div>
         </section>
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy;&nbsp;2022 Mesto Russia</p>
     </footer>
-    <script src="script/script.js"></script>
+    <section class="popup">
+        <div class="popup__container">
+            <button type="button" class="popup__close"></button>
+            <div class="popup__body">
+                <h2 class="popup__order">Редактировать профиль</h2>
+                <form name="popup" method="get" target="_parent" action="#" enctype="application/x-www-form-urlencoded"
+                    class="popup__form" novalidate>
+                    <input type='text' class="popup__content popup__content_input_name" id="title" name="title"
+                        placeholder="Жак-Ив Кусто">
+                    <input type='text' class="popup__content popup__content_input_work" id="title1" name="title1"
+                        placeholder="Исследователь океана">
+                    <button type="submit" class="popup__confirm">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script src="script/index.js"></script>
 </body>
 
 </html>

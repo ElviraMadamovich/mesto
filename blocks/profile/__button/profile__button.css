@@ -3,13 +3,14 @@
     background-image: url(../../../images/cross.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 22px 22px;
     min-width: 150px;
-    min-height: 50px;
+    min-height: 48px;
     padding: 0;
     outline: 2px solid rgb(255, 255, 255, 1);
     background-color: black;
     border-radius: 2px;
-    margin: 0;
+    margin: 0 0 0 200px;
     cursor: pointer;
 }
 
@@ -18,9 +19,11 @@
     transition: 0.2s;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1000px) {
     .profile__button {
-        width: 100%;
-        margin: 36px 0 0 0;
+        margin: 34px 0 0 0;
+        min-width: 280px;
+        height: 100%;
+        background-size: 16px 16px;
     }
 }

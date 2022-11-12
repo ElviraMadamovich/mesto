@@ -2,10 +2,11 @@
     margin: 0;
     padding: 0;
     max-width: 120.50px;
+    width: 100%;
     object-fit: cover;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1000px) {
     .profile__image {
         margin: 0 0 26px 0;
     }

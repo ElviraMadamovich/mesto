@@ -7,7 +7,7 @@
   position: relative;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1000px) {
   .elements__pic {
     grid-column: 1;
     width: 100%;

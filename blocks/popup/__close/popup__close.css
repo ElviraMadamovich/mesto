@@ -7,11 +7,14 @@
     width: 11%;
     min-height: 5%;
     border: none;
-    background-image: url(../../../images/Close.png);
+    background-image: url(../../../images/Close\ Icon.png);
     background-color: rgba(0, 0, 0, 0);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 32px 32px;
+    object-fit: cover;
     cursor: pointer;
+    transform: translate(22%, -7%);
 }
 
 .popup__close:hover {
@@ -19,12 +22,14 @@
     transition: 0.2s;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1000px) {
     .popup__close {
         top: 0;
         right: 19px;
         left: 262px;
         width: 7.1%;
         min-height: 3.18%;
+        transform: translate(6%, -10%);
+        background-size: 20px 20px;
     }
 }
