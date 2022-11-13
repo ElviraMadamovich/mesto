@@ -4,14 +4,14 @@
   min-height: 19px;
   padding: 0;
   margin: 0;
-  background-image: url(../../../images/like.png);
+  background-image: url(../../../images/like.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 22px 19px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .elements__like:hover {
   opacity: 0.5;
-  transition: 0.2s;
 }
