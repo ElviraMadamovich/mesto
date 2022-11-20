@@ -1,0 +1,22 @@
+.image-popup__container {
+    max-width: 90vw;
+    max-height: 90vh;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 0;
+    z-index: 100;
+}
+
+@media screen and (max-width: 1000px) {
+    .image-popup__container {
+        padding: 0;
+        max-width: 282px;
+        max-height: 350px;
+    }
+}
