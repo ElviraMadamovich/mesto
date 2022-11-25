@@ -1,5 +1,6 @@
 .popup__container {
-    max-width: 470px;
+    max-width: 95vw;
+    max-height: 90vh;
     margin: 0 auto;
     position: relative;
     display: flex;

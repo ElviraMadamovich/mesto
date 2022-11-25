@@ -31,39 +31,39 @@
     <footer class="footer">
         <p class="footer__copyright">&copy;&nbsp;2022 Mesto Russia</p>
     </footer>
-    <section class="popup">
+    <section class="popup profile-popup">
         <div class="popup__container">
             <button type="button" class="popup__close"></button>
             <h2 class="popup__order">Редактировать профиль</h2>
-            <form name="popup" method="get" target="_parent" action="#" enctype="application/x-www-form-urlencoded"
-                class="popup__form" novalidate>
+            <form name="profile" method="get" target="_parent" action="#" enctype="application/x-www-form-urlencoded"
+                class="popup__form profile-popup__form" novalidate>
                 <input type='text' class="popup__content popup__content_input_name" id="title" name="title"
                     placeholder="Жак-Ив Кусто">
-                <input type='text' class="popup__content popup__content_input_work" id="title1" name="title1"
+                <input type='text' class="popup__content popup__content_input_work" id="title1" name="work"
                     placeholder="Исследователь океана">
                 <button type="submit" class="popup__confirm">Сохранить</button>
             </form>
         </div>
     </section>
-    <section class="modal">
-        <div class="modal__container">
-            <button type="button" class="modal__close"></button>
-            <h2 class="modal__order">Новое место</h2>
-            <form name="popup" method="get" target="_parent" action="#" enctype="application/x-www-form-urlencoded"
-                class="modal__form" novalidate>
-                <input type='text' class="modal__content modal__content_input_title" id="caption" name="caption"
+    <section class="popup card-popup">
+        <div class="popup__container">
+            <button type="button" class="popup__close"></button>
+            <h2 class="popup__order">Новое место</h2>
+            <form name="addition" method="get" target="_parent" action="#" enctype="application/x-www-form-urlencoded"
+                class="popup__form card-popup__form" novalidate>
+                <input type='text' class="popup__content card-popup__content_input_title" id="caption" name="caption"
                     placeholder="Название">
-                <input type='text' class="modal__content modal__content_input_link" id="link" name="link"
+                <input type='url' class="popup__content card-popup__content_input_link" id="link" name="link"
                     placeholder="Ссылка на картинку">
-                <button type="submit" class="modal__confirm">Создать</button>
+                <button type="submit" class="popup__confirm">Создать</button>
             </form>
         </div>
     </section>
-    <section class="image-popup">
+    <section class="popup image-popup">
         <div class="image-popup__container">
-        <button type="button" class="image-popup__close"></button>
-        <img class="image-popup__pic" alt="море" src="#">
-        <h2 class="image-popup__name"></h2>
+            <button type="button" class="popup__close"></button>
+            <img class="image-popup__pic" alt="море" src="#">
+            <h2 class="image-popup__name"></h2>
         </div>
     </section>
     <template id="elements-template">
