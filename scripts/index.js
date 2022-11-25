@@ -18,8 +18,8 @@ const imageName = document.querySelector('.image-popup__name');
 const imageMax = document.querySelector('.image-popup__pic');
 const cardTitle = document.querySelector('.elements__name');
 const cardPic = document.querySelector('.elements__image');
-const popupLink = document.querySelector('.card-popup__content_link');
-const popupTitle = document.querySelector('.card-popup__content_title');
+const popupLink = document.querySelector('.popup__content_input_link');
+const popupTitle = document.querySelector('.popup__content_input_title');
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
