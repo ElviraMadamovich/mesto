@@ -1,4 +1,4 @@
-const popup = document.querySelectorAll('.popup');
+const popups = document.querySelectorAll('.popup');
 const profilePopup = document.querySelector('.profile-popup');
 const cardPopup = document.querySelector('.card-popup');
 const imagePopup = document.querySelector('.image-popup');
@@ -21,8 +21,8 @@ const cardPic = document.querySelector('.elements__image');
 const popupLink = document.querySelector('.popup__content_input_link');
 const popupTitle = document.querySelector('.popup__content_input_title');
 
-function openPopup(popup) {
-    popup.classList.add('popup_opened');
+function openPopup(popups) {
+    popups.classList.add('popup_opened');
 }
 
 function openProfilePopup(profilePopup) {
@@ -32,7 +32,8 @@ function openProfilePopup(profilePopup) {
 }
 
 function openPopupImage(element) {
-    imageMax.src = element.link;
+    imageMax.setAttribute('src', element.link);
+    imageMax.setAttribute('alt', element.name);
     imageName.textContent = element.name;
     openPopup(imagePopup);
 }
@@ -40,12 +41,12 @@ function openPopupImage(element) {
 addButton.addEventListener('click', () => openPopup(cardPopup));
 editButton.addEventListener('click', () => openProfilePopup(profilePopup));
 
-function closePopup(popup) {
-    popup.classList.remove('popup_opened');
+function closePopup(popups) {
+    popups.classList.remove('popup_opened');
 }
 closeButtons.forEach((button) => {
-    const popup = button.closest('.popup');
-    button.addEventListener('click', () => closePopup(popup));
+    const popups = button.closest('.popup');
+    button.addEventListener('click', () => closePopup(popups));
 });
 
 function handleProfileEdit(event) {
@@ -58,9 +59,8 @@ function handleProfileEdit(event) {
 function handleCardAdd(event) {
     event.preventDefault();
     renderCard({ name: popupTitle.value, link: popupLink.value });
-    popupTitle.value = '';
-    popupLink.value = '';
-    closePopup(profilePopup);
+    event.target.reset(cardPopupForm);
+    closePopup(cardPopup);
 };
 
 cardPopupForm.addEventListener('submit', handleCardAdd);
@@ -71,12 +71,7 @@ const handleDeleteCard = (event) => {
 }
 
 const handleLike = (event) => {
-    if (event.target.classList.contains('elements__like_active')) {
-        event.target.classList.remove('elements__like_active');
-    }
-    else {
-        event.target.classList.add('elements__like_active');
-    }
+    event.target.classList.toggle('elements__like_active');
 }
 
 const elementsPics = [
@@ -110,8 +105,10 @@ const createCard = (element) => {
     const newCard = elementsTemplate.cloneNode(true);
     const cardTitle = newCard.querySelector('.elements__name');
     const cardPic = newCard.querySelector('.elements__image');
+
     cardTitle.textContent = element.name;
-    cardPic.src = element.link;
+    cardPic.setAttribute('src', element.link);
+    cardPic.setAttribute('alt', element.name);
 
     const deleteBtn = newCard.querySelector('.elements__delete');
     deleteBtn.addEventListener('click', handleDeleteCard);
