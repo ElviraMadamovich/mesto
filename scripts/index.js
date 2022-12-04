@@ -1,12 +1,14 @@
 const popups = document.querySelectorAll('.popup');
+const popupOpened = document.querySelectorAll('.popup_opened');
 const profilePopup = document.querySelector('.profile-popup');
 const cardPopup = document.querySelector('.card-popup');
 const imagePopup = document.querySelector('.image-popup');
 const editButton = document.querySelector('.profile__edit');
 const closeButtons = document.querySelectorAll('.popup__close');
-const popupInput = document.querySelector('.popup__content');
+const popupInput = document.querySelectorAll('.popup__content');
 const popupName = document.querySelector('.popup__content_input_name');
 const popupWork = document.querySelector('.popup__content_input_work');
+const popupForm = document.querySelectorAll('.popup__form');
 const cardPopupForm = document.querySelector('.card-popup__form');
 const profilePopupForm = document.querySelector('.profile-popup__form');
 const profileName = document.querySelector('.profile__title');
@@ -21,11 +23,28 @@ const cardPic = document.querySelector('.elements__image');
 const popupLink = document.querySelector('.popup__content_input_link');
 const popupTitle = document.querySelector('.popup__content_input_title');
 
-function openPopup(popups) {
-    popups.classList.add('popup_opened');
+
+const HandleEscClose = function (evt) {
+    const popupOpened = document.querySelector('.popup_opened');
+    if (evt.key === 'Escape') {
+        closePopup(popupOpened);
+    }
 }
 
-function openProfilePopup(profilePopup) {
+const HandleOverlayClose = function (evt) {
+    const popupOpened = document.querySelector('.popup_opened');
+    if (evt.target === popupOpened) {
+        closePopup(popupOpened);
+    }
+}
+
+function openPopup(popups) {
+    popups.classList.add('popup_opened');
+    popups.addEventListener('click', HandleOverlayClose);
+    document.addEventListener('keydown', HandleEscClose);
+}
+
+function OpenProfilePopup(profilePopup) {
     popupName.value = profileName.textContent;
     popupWork.value = profileWork.textContent;
     openPopup(profilePopup);
@@ -43,7 +62,10 @@ editButton.addEventListener('click', () => openProfilePopup(profilePopup));
 
 function closePopup(popups) {
     popups.classList.remove('popup_opened');
+    document.addEventListener('click', HandleOverlayClose);
+    document.addEventListener('keydown', HandleEscClose);
 }
+
 closeButtons.forEach((button) => {
     const popups = button.closest('.popup');
     button.addEventListener('click', () => closePopup(popups));
@@ -59,8 +81,9 @@ function handleProfileEdit(event) {
 function handleCardAdd(event) {
     event.preventDefault();
     renderCard({ name: popupTitle.value, link: popupLink.value });
-    event.target.reset(cardPopupForm);
+    event.target.reset();
     closePopup(cardPopup);
+    disableButton(config, button);
 };
 
 cardPopupForm.addEventListener('submit', handleCardAdd);
@@ -72,6 +95,10 @@ const handleDeleteCard = (event) => {
 
 const handleLike = (event) => {
     event.target.classList.toggle('elements__like_active');
+}
+
+const handleOverlayClose = () => {
+    document.addEventListener('click', () => closePopup(popups));
 }
 
 const elementsPics = [

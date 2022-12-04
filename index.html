@@ -35,12 +35,14 @@
         <div class="popup__container">
             <button type="button" class="popup__close"></button>
             <h2 class="popup__order">Редактировать профиль</h2>
-            <form name="profile" method="get" target="_parent" action="#" enctype="application/x-www-form-urlencoded"
+            <form name="profile" method="post" target="_parent" action="#" enctype="application/x-www-form-urlencoded"
                 class="popup__form profile-popup__form" novalidate>
                 <input type='text' class="popup__content popup__content_input_name" id="title" name="title"
-                    placeholder="Жак-Ив Кусто">
-                <input type='text' class="popup__content popup__content_input_work" id="title1" name="work"
-                    placeholder="Исследователь океана">
+                    placeholder="Жак-Ив Кусто" required minlength="2" maxlength="40">
+                <span class="popup__content_error popup__content-name_error" id="name-error"></span>
+                <input type='text' class="popup__content popup__content_input_work" id="work" name="work"
+                    placeholder="Исследователь океана" required minlength="2" maxlength="200">
+                <span class="popup__content__error popup__content-work_error" id="work-error"></span>
                 <button type="submit" class="popup__confirm">Сохранить</button>
             </form>
         </div>
@@ -49,17 +51,19 @@
         <div class="popup__container">
             <button type="button" class="popup__close"></button>
             <h2 class="popup__order">Новое место</h2>
-            <form name="addition" method="get" target="_parent" action="#" enctype="application/x-www-form-urlencoded"
+            <form name="addition" method="post" target="_parent" action="#" enctype="application/x-www-form-urlencoded"
                 class="popup__form card-popup__form" novalidate>
                 <input type='text' class="popup__content popup__content_input_title" id="caption" name="caption"
-                    placeholder="Название">
+                    placeholder="Название" required minlength="2" maxlength="40">
+                <span class="popup__content__error popup__content-title_error" id="title-error"></span>
                 <input type='url' class="popup__content popup__content_input_link" id="link" name="link"
-                    placeholder="Ссылка на картинку">
+                    placeholder="Ссылка на картинку" required>
+                <span class="popup__content_error popup__content-link_error" id="link-error"></span>
                 <button type="submit" class="popup__confirm">Создать</button>
             </form>
         </div>
     </section>
-    <section class="popup image-popup">
+    <section class="popup image-popup" id="popup">
         <div class="image-popup__container">
             <button type="button" class="popup__close"></button>
             <img class="image-popup__pic">
@@ -77,6 +81,7 @@
         </li>
     </template>
     <script src="scripts/index.js"></script>
+    <script src="scripts/validate.js"></script>
 </body>
 
 </html>

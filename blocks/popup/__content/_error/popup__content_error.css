@@ -1,0 +1,12 @@
+.popup__content_error {
+    margin: 0;
+    color: rgba(255, 0, 0, 1);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    min-width: 238px;
+    width: 100%;
+}
