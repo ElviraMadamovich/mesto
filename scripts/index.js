@@ -58,7 +58,7 @@ function openPopupImage(element) {
 }
 
 addButton.addEventListener('click', () => openPopup(cardPopup));
-editButton.addEventListener('click', () => openProfilePopup(profilePopup));
+editButton.addEventListener('click', () => openPopup(profilePopup));
 
 function closePopup(popups) {
     popups.classList.remove('popup_opened');
