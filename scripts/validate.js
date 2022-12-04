@@ -9,12 +9,12 @@ const checkValidity = (myValidators, formElement, inputElement) => {
 
 const hideInputError = (errorElement, inputElement) => {
     errorElement.textContent = '';
-    inputElement.classList.remove('popup__content_error');
+    inputElement.classList.remove('popup__content_type_error');
 };
 
 const showInputError = (errorElement, inputElement) => {
     errorElement.textContent = inputElement.validationMessage;
-    inputElement.classList.add('popup__content_error');
+    inputElement.classList.add('popup__content_type_error');
 };
 
 const hasInvalidInput = (inputList) => {
@@ -69,6 +69,6 @@ enableValidation({
     inputSelector: ".popup__content",
     submitButtonSelector: ".popup__confirm",
     inactiveButtonClass: "popup__confirm_disabled",
-    inputErrorClass: "popup__content_error",
-    errorClass: "popup__content_error_active",
+    inputErrorClass: "popup__content_type_error",
+    errorClass: "popup__content_type_error_active",
 });
