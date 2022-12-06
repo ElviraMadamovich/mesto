@@ -24,27 +24,26 @@ const popupLink = document.querySelector('.popup__content_input_link');
 const popupTitle = document.querySelector('.popup__content_input_title');
 
 
-const HandleEscClose = function (evt) {
-    const popupOpened = document.querySelector('.popup_opened');
+const handleEscClose = function (evt) {
     if (evt.key === 'Escape') {
+        const popupOpened = document.querySelector('.popup_opened');
         closePopup(popupOpened);
     }
 }
 
-const HandleOverlayClose = function (evt) {
-    const popupOpened = document.querySelector('.popup_opened');
-    if (evt.target === popupOpened) {
-        closePopup(popupOpened);
+const handleOverlayClose = function (evt) {
+    if (evt.target === evt.currentTarget) {
+        closePopup(popups);
     }
 }
 
 function openPopup(popups) {
     popups.classList.add('popup_opened');
-    popups.addEventListener('click', HandleOverlayClose);
-    document.addEventListener('keydown', HandleEscClose);
+    popups.addEventListener('click', handleOverlayClose);
+    document.addEventListener('keydown', handleEscClose);
 }
 
-function OpenProfilePopup(profilePopup) {
+function openProfilePopup(profilePopup) {
     popupName.value = profileName.textContent;
     popupWork.value = profileWork.textContent;
     openPopup(profilePopup);
@@ -58,12 +57,12 @@ function openPopupImage(element) {
 }
 
 addButton.addEventListener('click', () => openPopup(cardPopup));
-editButton.addEventListener('click', () => openPopup(profilePopup));
+editButton.addEventListener('click', () => openProfilePopup(profilePopup));
 
 function closePopup(popups) {
     popups.classList.remove('popup_opened');
-    document.addEventListener('click', HandleOverlayClose);
-    document.addEventListener('keydown', HandleEscClose);
+    document.addEventListener('click', handleOverlayClose);
+    document.addEventListener('keydown', handleEscClose);
 }
 
 closeButtons.forEach((button) => {
@@ -95,10 +94,6 @@ const handleDeleteCard = (event) => {
 
 const handleLike = (event) => {
     event.target.classList.toggle('elements__like_active');
-}
-
-const handleOverlayClose = () => {
-    document.addEventListener('click', () => closePopup(popups));
 }
 
 const elementsPics = [
