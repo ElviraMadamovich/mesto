@@ -48,7 +48,6 @@ function openProfilePopup(profilePopup) {
     openPopup(profilePopup);
 }
 
-
 function openCardPopup(cardPopup) {
     openPopup(cardPopup);
 }
@@ -60,7 +59,7 @@ function openPopupImage(element) {
     openPopup(imagePopup);
 }
 
-addButton.addEventListener('click', () => openPopup(cardPopup));
+addButton.addEventListener('click', () => openCardPopup(cardPopup));
 editButton.addEventListener('click', () => openProfilePopup(profilePopup));
 
 function closePopup(popups) {
