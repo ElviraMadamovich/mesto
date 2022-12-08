@@ -23,7 +23,6 @@ const cardPic = document.querySelector('.elements__image');
 const popupLink = document.querySelector('.popup__content_input_link');
 const popupTitle = document.querySelector('.popup__content_input_title');
 
-
 const handleEscClose = function (evt) {
     if (evt.key === 'Escape') {
         const popupOpened = document.querySelector('.popup_opened');
@@ -33,7 +32,7 @@ const handleEscClose = function (evt) {
 
 const handleOverlayClose = function (evt) {
     if (evt.target === evt.currentTarget) {
-        closePopup(popups);
+        closePopup(evt.target);
     }
 }
 
@@ -47,6 +46,11 @@ function openProfilePopup(profilePopup) {
     popupName.value = profileName.textContent;
     popupWork.value = profileWork.textContent;
     openPopup(profilePopup);
+}
+
+
+function openCardPopup(cardPopup) {
+    openPopup(cardPopup);
 }
 
 function openPopupImage(element) {
@@ -82,8 +86,7 @@ function handleCardAdd(event) {
     renderCard({ name: popupTitle.value, link: popupLink.value });
     event.target.reset();
     closePopup(cardPopup);
-    disableButton(config, button);
-};
+}
 
 cardPopupForm.addEventListener('submit', handleCardAdd);
 profilePopupForm.addEventListener('submit', handleProfileEdit);

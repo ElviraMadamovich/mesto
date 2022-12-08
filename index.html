@@ -39,10 +39,10 @@
                 class="popup__form profile-popup__form" novalidate>
                 <input type='text' class="popup__content popup__content_input_name" id="name" name="name"
                     placeholder="Жак-Ив Кусто" required minlength="2" maxlength="40">
-                <span class="popup__error popup__error_active" id="error"></span>
+                <span class="popup__error popup__error_active popup__error_name" id="name-error"></span>
                 <input type='text' class="popup__content popup__content_input_work" id="work" name="work"
                     placeholder="Исследователь океана" required minlength="2" maxlength="200">
-                <span class="popup__error popup__error_active" id="error"></span>
+                <span class="popup__error popup__error_active popup__error_work" id="work-error"></span>
                 <button type="submit" class="popup__confirm">Сохранить</button>
             </form>
         </div>
@@ -55,10 +55,10 @@
                 class="popup__form card-popup__form" novalidate>
                 <input type='text' class="popup__content popup__content_input_title" id="caption" name="caption"
                     placeholder="Название" required minlength="2" maxlength="30">
-                <span class="popup__error popup__error_active" id="error"></span>
+                <span class="popup__error popup__error_active popup__error_title" id="caption-error"></span>
                 <input type='url' class="popup__content popup__content_input_link" id="link" name="link"
                     placeholder="Ссылка на картинку" required>
-                <span class="popup__error popup__error_active" id="error"></span>
+                <span class="popup__error popup__error_active popup__error_link" id="link-error"></span>
                 <button type="submit" class="popup__confirm">Создать</button>
             </form>
         </div>

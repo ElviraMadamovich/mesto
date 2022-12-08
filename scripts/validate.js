@@ -28,11 +28,11 @@ const addEventListeners = (settings, formElement) => {
     const button = formElement.querySelector(settings.submitButtonSelector);
     inputList.forEach((inputElement) => {
         inputElement.addEventListener("input", () => {
-            checkValidity(settings, formElement, inputElement);
+            checkValidity(settings, inputElement);
             toggleButtonState(settings, inputList, button);
         });
     });
-};
+}
 
 const disableButton = (settings, button) => {
     button.setAttribute("disabled", true);
@@ -50,7 +50,7 @@ const toggleButtonState = (settings, inputList, button) => {
     } else {
         enableButton(settings, button);
     }
-};
+}
 
 const enableValidation = (settings) => {
     const formList = Array.from(document.querySelectorAll(settings.formSelector));
@@ -72,3 +72,4 @@ enableValidation({
     inputErrorClass: "popup__error",
     errorClass: "popup__error_active",
 });
+
