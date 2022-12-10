@@ -22,6 +22,16 @@ const cardTitle = document.querySelector('.elements__name');
 const cardPic = document.querySelector('.elements__image');
 const popupLink = document.querySelector('.popup__content_input_link');
 const popupTitle = document.querySelector('.popup__content_input_title');
+const saveButton = cardPopup.querySelector('.popup__confirm');
+const settings = {
+    formSelector: ".popup__form",
+    inputSelector: ".popup__content",
+    inputSelectorError: ".popup__content_error_active",
+    submitButtonSelector: ".popup__confirm",
+    inactiveButtonClass: "popup__confirm_disabled",
+    inputErrorClass: "popup__error",
+    errorClass: "popup__error_active",
+};
 
 const handleEscClose = function (evt) {
     if (evt.key === 'Escape') {
@@ -50,6 +60,7 @@ function openProfilePopup(profilePopup) {
 
 function openCardPopup(cardPopup) {
     openPopup(cardPopup);
+    disableButton(settings, saveButton);
 }
 
 function openPopupImage(element) {
@@ -64,8 +75,8 @@ editButton.addEventListener('click', () => openProfilePopup(profilePopup));
 
 function closePopup(popups) {
     popups.classList.remove('popup_opened');
-    document.addEventListener('click', handleOverlayClose);
-    document.addEventListener('keydown', handleEscClose);
+    popups.removeEventListener('click', handleOverlayClose);
+    document.removeEventListener('keydown', handleEscClose);
 }
 
 closeButtons.forEach((button) => {
