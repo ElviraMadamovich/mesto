@@ -26,7 +26,7 @@ const saveButton = cardPopup.querySelector('.popup__confirm');
 const settings = {
     formSelector: ".popup__form",
     inputSelector: ".popup__content",
-    inputSelectorError: ".popup__content_error_active",
+    inputError: "popup__content_error_active",
     submitButtonSelector: ".popup__confirm",
     inactiveButtonClass: "popup__confirm_disabled",
     inputErrorClass: "popup__error",

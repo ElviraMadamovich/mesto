@@ -9,16 +9,16 @@ const checkValidity = (settings, inputElement) => {
 
 const hideInputError = (settings, errorElement, inputElement) => {
     errorElement.textContent = '';
-    inputElement.classList.remove(settings.inputSelectorError);
+    inputElement.classList.remove(settings.inputError);
 };
 
 const showInputError = (settings, errorElement, inputElement) => {
     errorElement.textContent = inputElement.validationMessage;
-    inputElement.classList.add(settings.inputSelectorError);
+    inputElement.classList.add(settings.inputError);
 };
 
 const hasInvalidInput = (inputList) => {
-    return inputList.some((inputElement) => {
+    return inputList.every((inputElement) => {
         return !inputElement.validity.valid;
     });
 };
