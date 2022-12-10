@@ -18,39 +18,37 @@ const showInputError = (settings, errorElement, inputElement) => {
 };
 
 const hasInvalidInput = (inputList) => {
-    return inputList.every((inputElement) => {
-        return !inputElement.validity.valid;
+    return !inputList.every((inputElement) => {
+        return inputElement.validity.valid;
     });
 };
 
-const addEventListeners = (settings, formElement, inactiveButtonClass) => {
+const addEventListeners = (settings, formElement) => {
     const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
     const button = formElement.querySelector(settings.submitButtonSelector);
     inputList.forEach((inputElement) => {
         inputElement.addEventListener("input", () => {
             checkValidity(settings, inputElement);
-            toggleButtonState(inputList, inactiveButtonClass, button);
+            toggleButtonState(inputList, settings, button);
         });
     });
 }
 
-const disableButton = (inactiveButtonClass, button) => {
-    inactiveButtonClass = settings.inactiveButtonClass;
+const disableButton = (settings, button) => {
     button.setAttribute("disabled", true);
     button.classList.add(settings.inactiveButtonClass);
 }
 
-const enableButton = (inactiveButtonClass, button) => {
-    inactiveButtonClass = settings.inactiveButtonClass;
+const enableButton = (settings, button) => {
     button.removeAttribute("disabled", true);
     button.classList.remove(settings.inactiveButtonClass);
 }
 
-const toggleButtonState = (inputList, inactiveButtonClass, button) => {
+const toggleButtonState = (inputList, settings, button) => {
     if (hasInvalidInput(inputList)) {
-        disableButton(inactiveButtonClass, button);
+        disableButton(settings, button);
     } else {
-        enableButton(inactiveButtonClass, button);
+        enableButton(settings, button);
     }
 }
 
