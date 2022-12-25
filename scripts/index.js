@@ -1,3 +1,6 @@
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
+
 const popups = document.querySelectorAll('.popup');
 const popupOpened = document.querySelectorAll('.popup_opened');
 const profilePopup = document.querySelector('.profile-popup');
@@ -60,7 +63,8 @@ function openProfilePopup(profilePopup) {
 
 function openCardPopup(cardPopup) {
     openPopup(cardPopup);
-    disableButton(settings, saveButton);
+    const validation = new FormValidator();
+    validation.disableButton(settings, saveButton);
 }
 
 function openPopupImage(element) {
@@ -136,28 +140,9 @@ const elementsPics = [
     }
 ];
 
-const createCard = (element) => {
-    const newCard = elementsTemplate.cloneNode(true);
-    const cardTitle = newCard.querySelector('.elements__name');
-    const cardPic = newCard.querySelector('.elements__image');
-
-    cardTitle.textContent = element.name;
-    cardPic.setAttribute('src', element.link);
-    cardPic.setAttribute('alt', element.name);
-
-    const deleteBtn = newCard.querySelector('.elements__delete');
-    deleteBtn.addEventListener('click', handleDeleteCard);
-
-    const likes = newCard.querySelector('.elements__like');
-    likes.addEventListener('click', handleLike);
-
-    cardPic.addEventListener('click', () => openPopupImage(element));
-
-    return newCard;
-}
-
 const renderCard = (element) => {
-    elementsContainer.prepend(createCard(element));
+    const card = new Card (element);
+    elementsContainer.prepend(card.getView());
 };
 
 elementsPics.forEach((element) => {
