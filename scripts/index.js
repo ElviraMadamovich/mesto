@@ -63,8 +63,7 @@ function openProfilePopup(profilePopup) {
 
 function openCardPopup(cardPopup) {
     openPopup(cardPopup);
-    const validation = new FormValidator();
-    validation.disableButton(settings, saveButton);
+    FormValidator.disableButton(settings, saveButton);
 }
 
 function openPopupImage(element) {
