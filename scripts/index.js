@@ -1,5 +1,5 @@
-import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
+import Card from "./Card.js";
 
 const popups = document.querySelectorAll('.popup');
 const popupOpened = document.querySelectorAll('.popup_opened');
@@ -36,6 +36,11 @@ const settings = {
     errorClass: "popup__error_active",
 };
 
+const profileValidator = new FormValidator(settings, profilePopup);
+profileValidator.enableValidation();
+const newCardValidator = new FormValidator(settings, cardPopup);
+newCardValidator.enableValidation();
+
 const handleEscClose = function (evt) {
     if (evt.key === 'Escape') {
         const popupOpened = document.querySelector('.popup_opened');
@@ -63,14 +68,15 @@ function openProfilePopup(profilePopup) {
 
 function openCardPopup(cardPopup) {
     openPopup(cardPopup);
-    FormValidator.disableButton(settings, saveButton);
+    disableButton(settings, saveButton);
 }
 
 function openPopupImage(element) {
     imageMax.setAttribute('src', element.link);
     imageMax.setAttribute('alt', element.name);
     imageName.textContent = element.name;
-    openPopup(imagePopup);
+    const card = new Card (element);
+    card.openPopup(imagePopup);
 }
 
 addButton.addEventListener('click', () => openCardPopup(cardPopup));
@@ -140,7 +146,7 @@ const elementsPics = [
 ];
 
 const renderCard = (element) => {
-    const card = new Card (element);
+    const card = new Card(element);
     elementsContainer.prepend(card.getView());
 };
 
