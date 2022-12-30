@@ -37,8 +37,8 @@ const settings = {
 };
 
 const profileValidator = new FormValidator(settings, profilePopup);
-profileValidator.enableValidation();
 const newCardValidator = new FormValidator(settings, cardPopup);
+profileValidator.enableValidation();
 newCardValidator.enableValidation();
 
 const handleEscClose = function (evt) {
@@ -68,15 +68,14 @@ function openProfilePopup(profilePopup) {
 
 function openCardPopup(cardPopup) {
     openPopup(cardPopup);
-    disableButton(settings, saveButton);
+    newCardValidator.disableButton(settings, saveButton);
 }
 
 function openPopupImage(element) {
     imageMax.setAttribute('src', element.link);
     imageMax.setAttribute('alt', element.name);
     imageName.textContent = element.name;
-    const card = new Card (element);
-    card.openPopup(imagePopup);
+    openPopup(imagePopup); 
 }
 
 addButton.addEventListener('click', () => openCardPopup(cardPopup));

@@ -41,6 +41,7 @@ class Card {
 
         return this._newCard;
     }
+
 }
 
 export default Card;
