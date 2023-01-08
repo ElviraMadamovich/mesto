@@ -19,8 +19,6 @@ const profileWork = document.querySelector('.profile__subtitle');
 const addButton = document.querySelector('.profile__button');
 const elementsTemplate = document.querySelector('#elements-template').content.querySelector('.elements__pic');
 const elementsContainer = document.querySelector('.elements__pics');
-const imageName = document.querySelector('.image-popup__name');
-const imageMax = document.querySelector('.image-popup__pic');
 const cardTitle = document.querySelector('.elements__name');
 const cardPic = document.querySelector('.elements__image');
 const popupLink = document.querySelector('.popup__content_input_link');
@@ -36,8 +34,8 @@ const settings = {
     errorClass: "popup__error_active",
 };
 
-const profileValidator = new FormValidator(settings, profilePopup);
-const newCardValidator = new FormValidator(settings, cardPopup);
+const profileValidator = new FormValidator(settings, profilePopupForm);
+const newCardValidator = new FormValidator(settings, cardPopupForm);
 profileValidator.enableValidation();
 newCardValidator.enableValidation();
 
@@ -54,7 +52,7 @@ const handleOverlayClose = function (evt) {
     }
 }
 
-function openPopup(popups) {
+export function openPopup(popups) {
     popups.classList.add('popup_opened');
     popups.addEventListener('click', handleOverlayClose);
     document.addEventListener('keydown', handleEscClose);
@@ -69,13 +67,6 @@ function openProfilePopup(profilePopup) {
 function openCardPopup(cardPopup) {
     openPopup(cardPopup);
     newCardValidator.disableButton(settings, saveButton);
-}
-
-function openPopupImage(element) {
-    imageMax.setAttribute('src', element.link);
-    imageMax.setAttribute('alt', element.name);
-    imageName.textContent = element.name;
-    openPopup(imagePopup); 
 }
 
 addButton.addEventListener('click', () => openCardPopup(cardPopup));
@@ -146,7 +137,7 @@ const elementsPics = [
 
 const renderCard = (element) => {
     const card = new Card(element);
-    elementsContainer.prepend(card.getView());
+    elementsContainer.prepend(card.createCard());
 };
 
 elementsPics.forEach((element) => {

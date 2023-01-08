@@ -2,7 +2,7 @@ class FormValidator {
     constructor(settings, formElement) {
         this._settings = settings;
         this._formElement = formElement;
-        this._inputList = Array.from(this._formElement.querySelectorAll(this._settings.formInput));
+        this._inputList = Array.from(this._formElement.querySelectorAll(this._settings.inputSelector));
         this._button = this._formElement.querySelector(this._settings.submitButtonSelector);
     }
 
@@ -15,17 +15,17 @@ class FormValidator {
     };
 
     _hideInputError(inputElement) {
-        const errorElement = this._formElement.getElementbyId(`${inputElement.id}-error`);
+        const errorElement = document.getElementById(`${inputElement.id}-error`);
         errorElement.textContent = '';
-        errorElement.classList.remove(this._settings.inputError);
-        inputElement.classList.remove(this._settings.inputErrorClass);
+        errorElement.classList.remove(this._settings.errorClass);
+        inputElement.classList.remove(this._settings.inputError);
     };
 
     _showInputError(inputElement, errorMessage) {
-        const errorElement = this._formElement.getElementbyId(`${inputElement.id}-error`);
-        inputElement.classList.add(this._settings.inputErrorClass);
+        const errorElement = document.getElementById(`${inputElement.id}-error`);
         errorElement.textContent = errorMessage;
-        errorElement.classList.add(this._settings.inputError);
+        errorElement.classList.add(this._settings.errorClass);
+        inputElement.classList.add(this._settings.inputError);
     }
 
     _hasInvalidInput() {
@@ -45,10 +45,6 @@ class FormValidator {
         this._formElement.addEventListener('submit', (event) => {
             event.preventDefault();
         });
-    }
-
-    enableValidation() {
-        this._addEventListeners();
     }
 
     disableButton() {
@@ -71,16 +67,11 @@ class FormValidator {
     }
 
     enableValidation() {
-        const formList = Array.from(document.querySelectorAll(this._settings.formSelector));
-        formList.forEach(() => {
-            this._formElement.addEventListener("submit", (evt) => {
-                evt.preventDefault();
-            });
-            this._addEventListeners();
-
+        this._formElement.addEventListener("submit", (evt) => {
+            evt.preventDefault();
         });
-
-    };
+        this._addEventListeners();
+    }
 }
 
 export default FormValidator; 
