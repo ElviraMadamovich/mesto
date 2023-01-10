@@ -5,7 +5,7 @@ const popups = document.querySelectorAll('.popup');
 const popupOpened = document.querySelectorAll('.popup_opened');
 const profilePopup = document.querySelector('.profile-popup');
 const cardPopup = document.querySelector('.card-popup');
-const imagePopup = document.querySelector('.image-popup');
+export const imagePopup = document.querySelector('.image-popup');
 const editButton = document.querySelector('.profile__edit');
 const closeButtons = document.querySelectorAll('.popup__close');
 const popupInput = document.querySelectorAll('.popup__content');
@@ -21,6 +21,8 @@ const elementsTemplate = document.querySelector('#elements-template').content.qu
 const elementsContainer = document.querySelector('.elements__pics');
 const cardTitle = document.querySelector('.elements__name');
 const cardPic = document.querySelector('.elements__image');
+export const imageName = document.querySelector('.image-popup__name');
+export const imageMax = document.querySelector('.image-popup__pic');
 const popupLink = document.querySelector('.popup__content_input_link');
 const popupTitle = document.querySelector('.popup__content_input_title');
 const saveButton = cardPopup.querySelector('.popup__confirm');
@@ -66,7 +68,7 @@ function openProfilePopup(profilePopup) {
 
 function openCardPopup(cardPopup) {
     openPopup(cardPopup);
-    newCardValidator.disableButton(settings, saveButton);
+    newCardValidator.disableButton();
 }
 
 addButton.addEventListener('click', () => openCardPopup(cardPopup));
@@ -100,14 +102,6 @@ function handleCardAdd(event) {
 cardPopupForm.addEventListener('submit', handleCardAdd);
 profilePopupForm.addEventListener('submit', handleProfileEdit);
 
-const handleDeleteCard = (event) => {
-    event.target.closest('.elements__pic').remove();
-}
-
-const handleLike = (event) => {
-    event.target.classList.toggle('elements__like_active');
-}
-
 const elementsPics = [
     {
         name: 'Каспийское море',
@@ -137,7 +131,8 @@ const elementsPics = [
 
 const renderCard = (element) => {
     const card = new Card(element);
-    elementsContainer.prepend(card.createCard());
+    const generateCard = card.createCard();
+    elementsContainer.prepend(generateCard);
 };
 
 elementsPics.forEach((element) => {
