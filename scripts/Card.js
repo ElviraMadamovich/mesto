@@ -1,13 +1,14 @@
 import { openPopup, imageMax, imageName, imagePopup } from "./index.js";
 class Card {
-    constructor({ name, link }) {
+    constructor({ name, link }, selector) {
         this._name = name;
         this._link = link;
-        this._template = document.querySelector('#elements-template');
+        this._selector = selector;
     }
 
     _getElementsTemplate() {
-        const card = this._template.content.querySelector('.elements__pic').cloneNode(true);
+        this._selector = '#elements-template';
+        const card = document.querySelector(this._selector).content.querySelector('.elements__pic').cloneNode(true);
         return card;
     }
 
@@ -22,7 +23,7 @@ class Card {
     _openImage() {
         imageMax.setAttribute('src', this._link);
         imageMax.setAttribute('alt', this._name);
-        imageName.textContent = this._name; 
+        imageName.textContent = this._name;
         openPopup(imagePopup);
     }
 

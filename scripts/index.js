@@ -129,11 +129,16 @@ const elementsPics = [
     }
 ];
 
-const renderCard = (element) => {
-    const card = new Card(element);
-    const generateCard = card.createCard();
-    elementsContainer.prepend(generateCard);
-};
+const generateCard = (element) => {
+    const card = new Card(element, '#elements-template'); 
+    const cardElement = card.createCard();
+    return cardElement;
+}
+
+const renderCard = (element) => { 
+    const card = generateCard(element);
+    elementsContainer.prepend(card); 
+}; 
 
 elementsPics.forEach((element) => {
     renderCard(element);
