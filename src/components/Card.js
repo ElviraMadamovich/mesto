@@ -1,9 +1,10 @@
 import { openPopup, imageMax, imageName, imagePopup } from "./index.js";
 class Card {
-    constructor({ name, link }, selector) {
+    constructor({ name, link }, handleCardClick, selector) {
         this._name = name;
         this._link = link;
         this._selector = selector;
+        this._handleCardClick = this._handleCardClick.bind(this);
     }
 
     _getElementsTemplate() {
@@ -20,7 +21,7 @@ class Card {
         this._likeButton.classList.toggle('elements__like_active');
     }
 
-    _openImage() {
+    _handleCardClick() {
         imageMax.setAttribute('src', this._link);
         imageMax.setAttribute('alt', this._name);
         imageName.textContent = this._name;
@@ -35,7 +36,7 @@ class Card {
         this._likeButton.addEventListener('click', () => this._handleLike());
 
         this._cardPic = this._newCard.querySelector('.elements__image');
-        this._cardPic.addEventListener('click', () => this._openImage());
+        this._cardPic.addEventListener('click', () => this._handleCardClick());
     }
 
     _setData() {

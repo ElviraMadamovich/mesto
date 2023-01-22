@@ -1,7 +1,10 @@
-import FormValidator from "./FormValidator.js";
-import Card from "./Card.js";
-import Section from "./Section.js";
-import UserInfo from "./UserInfo.js";
+import FormValidator from "./components/FormValidator.js";
+import Card from "./components/Card.js";
+import Section from "./components/Section.js";
+import UserInfo from "./components/UserInfo.js";
+import Popup from "./components/Popup.js";
+import PopupWithForm from "./components/PopupWithForm.js";
+import PopupWithImage from "./components/PopupWithImage.js";
 
 const popups = document.querySelectorAll('.popup');
 const popupOpened = document.querySelectorAll('.popup_opened');
@@ -43,11 +46,16 @@ const newCardValidator = new FormValidator(settings, cardPopupForm);
 profileValidator.enableValidation();
 newCardValidator.enableValidation();
 
-const userInfo = new UserInfo(
-    '.profile__title',
-    '.profile__subtitle',
-    ".profile__image"
-  );
+const userInfo = new UserInfo({
+    name: '.profile__title',
+    job: '.profile__subtitle',
+});
+
+//const openProfilePopup = new PopupWithForm('.profile__popup', {
+//    formSubmit: ({ name, job }) => {
+//        inputValues.setUserInfo(name, job);
+//    }
+//});
 
 const handleEscClose = function (evt) {
     if (evt.key === 'Escape') {
