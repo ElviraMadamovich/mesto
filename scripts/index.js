@@ -1,5 +1,7 @@
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
+import Section from "./Section.js";
+import UserInfo from "./UserInfo.js";
 
 const popups = document.querySelectorAll('.popup');
 const popupOpened = document.querySelectorAll('.popup_opened');
@@ -40,6 +42,12 @@ const profileValidator = new FormValidator(settings, profilePopupForm);
 const newCardValidator = new FormValidator(settings, cardPopupForm);
 profileValidator.enableValidation();
 newCardValidator.enableValidation();
+
+const userInfo = new UserInfo(
+    '.profile__title',
+    '.profile__subtitle',
+    ".profile__image"
+  );
 
 const handleEscClose = function (evt) {
     if (evt.key === 'Escape') {
@@ -129,17 +137,13 @@ const elementsPics = [
     }
 ];
 
-const generateCard = (element) => {
-    const card = new Card(element, '#elements-template'); 
-    const cardElement = card.createCard();
-    return cardElement;
-}
+const cardGallery = new Section({
+    items: elementsPics,
+    renderer: (element) => {
+        const card = new Card(element, '#elements-template');
+        const cardElement = card.createCard();
+        cardGallery.addItem(cardElement);
+    }
+}, elementsContainer);
 
-const renderCard = (element) => { 
-    const card = generateCard(element);
-    elementsContainer.prepend(card); 
-}; 
-
-elementsPics.forEach((element) => {
-    renderCard(element);
-});
+cardGallery.renderItems();
