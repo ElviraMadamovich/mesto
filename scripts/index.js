@@ -5,28 +5,18 @@ import UserInfo from "./UserInfo.js";
 import PopupWithForm from "./PopupWithForm.js";
 import PopupWithImage from "./PopupWithImage.js";
 
-const popups = document.querySelectorAll('.popup');
-const popupOpened = document.querySelectorAll('.popup_opened');
-const profilePopup = document.querySelector('.profile-popup');
-const cardPopup = document.querySelector('.card-popup');
 const editButton = document.querySelector('.profile__edit');
-const closeButtons = document.querySelectorAll('.popup__close');
-const popupInput = document.querySelectorAll('.popup__content');
 const popupName = document.querySelector('.popup__content_input_name');
 const popupWork = document.querySelector('.popup__content_input_work');
-const popupForm = document.querySelectorAll('.popup__form');
 const cardPopupForm = document.querySelector('.card-popup__form');
 const profilePopupForm = document.querySelector('.profile-popup__form');
-const profileName = document.querySelector('.profile__title');
-const profileWork = document.querySelector('.profile__subtitle');
 const addButton = document.querySelector('.profile__button');
-const elementsTemplate = document.querySelector('#elements-template').content.querySelector('.elements__pic');
 const elementsContainer = document.querySelector('.elements__pics');
-const cardTitle = document.querySelector('.elements__name');
-const cardPic = document.querySelector('.elements__image');
-const popupLink = document.querySelector('.popup__content_input_link');
-const popupTitle = document.querySelector('.popup__content_input_title');
-const saveButton = cardPopup.querySelector('.popup__confirm');
+export const imageMax = document.querySelector('.image-popup__pic');
+export const imageName = document.querySelector('.image-popup__name');
+export const popupForm =  document.querySelector('.popup__form');
+export const closeButtons = document.querySelector('.popup__close');
+
 const settings = {
     formSelector: ".popup__form",
     inputSelector: ".popup__content",
