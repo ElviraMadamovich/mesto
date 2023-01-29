@@ -1,4 +1,4 @@
-import { closeButtons } from "./index.js";
+import { closeButtons } from "../pages/index.js";
 export default class Popup {
     constructor(popupSelector) {
         this._popups = document.querySelector(popupSelector);
