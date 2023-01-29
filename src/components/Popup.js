@@ -1,7 +1,7 @@
 import { closeButtons } from "./index.js";
 export default class Popup {
     constructor(popupSelector) {
-        this._popups = document.querySelectorAll('.popup');
+        this._popups = document.querySelector(popupSelector);
         this._closeButtons = closeButtons;
         this.close = this.close.bind(this);
         this._handleEscClose = this._handleEscClose.bind(this);
@@ -31,7 +31,7 @@ export default class Popup {
     }
 
     setEventListeners() {
-        this._closeButtons.addEventListener('click', this.close);
+        this._popups.querySelector(".popup__close").addEventListener("mousedown", () => this.close());
         document.addEventListener('mousedown', this._handleOverlayClose);
     }
 }
