@@ -1,3 +1,5 @@
+import "./index.css";
+
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import Section from "../components/Section.js";
@@ -14,6 +16,12 @@ const addButton = document.querySelector('.profile__button');
 const elementsContainer = document.querySelector('.elements__pics');
 export const closeButtons = document.querySelector('.popup__close');
 const popupTitle = document.querySelector('.popup__content_input_title');
+const kaspijskoe_more = new URL('../images/kaspijskoe_more.jpg', import.meta.url);
+const barentsevo_more = new URL('../images/barentsevo_more.jpg', import.meta.url);
+const yaponskoye_more = new URL('../images/yaponskoye_more.jpg', import.meta.url);
+const chernoye_more = new URL('../images/chernoye_more.jpg', import.meta.url);
+const baltiyskoye_more = new URL('../images/baltiyskoye_more.jpg', import.meta.url);
+const okhotskoye_more = new URL('../images/okhotskoye_more.jpg', import.meta.url);
 
 const settings = {
     formSelector: ".popup__form",
@@ -28,27 +36,27 @@ const settings = {
 const elementsPics = [
     {
         name: 'Каспийское море',
-        link: 'images/kaspijskoe-more.jpg'
+        link: kaspijskoe_more
     },
     {
         name: 'Баренцево море',
-        link: 'images/barentsevo_more.jpg'
+        link: barentsevo_more
     },
     {
         name: 'Японское море',
-        link: 'images/yaponskoye_more.jpg'
+        link: yaponskoye_more
     },
     {
         name: 'Чёрное море',
-        link: 'images/chernoye_more.jpg'
+        link: chernoye_more
     },
     {
         name: 'Балтийское море',
-        link: 'images/baltiyskoye_more.jpg'
+        link: baltiyskoye_more
     },
     {
         name: 'Охотское море',
-        link: 'images/okhotskoye_more.jpg'
+        link: okhotskoye_more
     }
 ];
 
