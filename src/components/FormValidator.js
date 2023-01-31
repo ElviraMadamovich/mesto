@@ -42,9 +42,6 @@ class FormValidator {
                 this.toggleButtonState();
             });
         });
-        this._formElement.addEventListener('submit', (event) => {
-            event.preventDefault();
-        });
     }
 
     _disableButton() {
@@ -59,7 +56,7 @@ class FormValidator {
     }
 
     toggleButtonState() {
-        if (this._hasInvalidInput(this._inputList)) {
+        if (this._hasInvalidInput()) {
             this._disableButton();
         } else {
             this._enableButton();
@@ -67,9 +64,6 @@ class FormValidator {
     }
 
     enableValidation() {
-        this._formElement.addEventListener("submit", (evt) => {
-            evt.preventDefault();
-        });
         this._addEventListeners();
     }
 }

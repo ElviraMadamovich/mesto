@@ -1,8 +1,7 @@
-import { closeButtons } from "../pages/index.js";
 export default class Popup {
     constructor(popupSelector) {
-        this._popups = document.querySelector(popupSelector);
-        this._closeButtons = closeButtons;
+        this._popup = document.querySelector(popupSelector);
+        this._closeButton = this._popup.querySelector('.popup__close');
         this.close = this.close.bind(this);
         this._handleEscClose = this._handleEscClose.bind(this);
         this._handleOverlayClose = this._handleOverlayClose.bind(this);
@@ -10,11 +9,11 @@ export default class Popup {
 
     open() {
         document.addEventListener('keydown', this._handleEscClose);
-        this._popups.classList.add('popup_opened');
+        this._popup.classList.add('popup_opened');
     }
 
     close() {
-        this._popups.classList.remove('popup_opened');
+        this._popup.classList.remove('popup_opened');
         document.removeEventListener('keydown', this._handleEscClose);
     }
 
@@ -31,8 +30,7 @@ export default class Popup {
     }
 
     setEventListeners() {
-        this._closeButtons = this._popups.querySelector(".popup__close");
-        this._closeButtons.addEventListener("mousedown", () => this.close());
+        this._closeButton.addEventListener("mousedown", () => this.close());
         document.addEventListener('mousedown', this._handleOverlayClose);
     }
 }

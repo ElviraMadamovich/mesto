@@ -8,13 +8,13 @@ class Card {
     }
 
     _getElementsTemplate() {
-        this._selector = '#elements-template';
         const card = document.querySelector(this._selector).content.querySelector('.elements__pic').cloneNode(true);
         return card;
     }
 
     _handleDelete() {
         this._newCard.remove();
+        this._newCard = null;
     }
 
     _handleLike() {

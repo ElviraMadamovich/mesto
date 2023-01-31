@@ -1,6 +1,6 @@
 .image-popup__container {
-    max-width: 50vw;
-    max-height: 563.9px;
+    max-width: 80vw;
+    max-height: 80vh;
     height: 100%;
     margin: 0 auto;
     position: relative;
@@ -17,6 +17,6 @@
     .image-popup__container {
         padding: 0;
         max-width: 240px;
-        max-height: 50vh;
+        max-height: 299px;
     }
 }

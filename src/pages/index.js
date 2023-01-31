@@ -13,8 +13,6 @@ const popupWork = document.querySelector('.popup__content_input_work');
 const cardPopupForm = document.querySelector('.card-popup__form');
 const profilePopupForm = document.querySelector('.profile-popup__form');
 const addButton = document.querySelector('.profile__button');
-const elementsContainer = document.querySelector('.elements__pics');
-export const closeButtons = document.querySelector('.popup__close');
 const popupTitle = document.querySelector('.popup__content_input_title');
 const kaspijskoe_more = new URL('../images/kaspijskoe_more.jpg', import.meta.url);
 const barentsevo_more = new URL('../images/barentsevo_more.jpg', import.meta.url);
@@ -112,16 +110,16 @@ function handleCardClick (name, link) {
     popupWithImage.open(name, link);
 }
 
-const createCard = ({ name, link}) => {
-    const card = new Card({ name, link }, handleCardClick, '#elements-template').createCard();
+const createCard = ({ name, link }) => { 
+    const card = new Card({ name, link }, handleCardClick, '#elements-template').createCard(); 
     return card;
-}
+} 
 
 const cardGallery = new Section({
     items: elementsPics,
-    renderer: (element) => {
-        cardGallery.addItem(createCard(element));
-    }
-}, elementsContainer);
+    renderer: ({ name, link }) => { 
+        cardGallery.addItem(createCard({ name, link })); 
+    } 
+}, '.elements__pics'); 
 
-cardGallery.renderItems();
+ cardGallery.renderItems(); 
