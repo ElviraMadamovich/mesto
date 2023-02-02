@@ -81,7 +81,7 @@ const popupWithCard = new PopupWithForm(
     {
         popupSelector: '.card-popup',
         submit: (formValues) => {
-            cardGallery.addItem(createCard({ name: popupTitle.value, link: formValues.link }));
+            cardGallery.addItem(createCard({ name: formValues.caption, link: formValues.link }));
             popupWithCard.close();
         }
     }
