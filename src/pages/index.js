@@ -6,6 +6,7 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+import Api from "../components/Api.js";
 
 const editButton = document.querySelector('.profile__edit');
 const popupName = document.querySelector('.popup__content_input_name');
@@ -66,6 +67,19 @@ newCardValidator.enableValidation();
 const userInfo = new UserInfo({
     name: '.profile__title',
     work: '.profile__subtitle',
+    photo: '.profile__image',
+});
+
+const popupWithAvatar = new PopupWithForm('.profile__image', (formData) => {
+    popupWithAvatar.renderLoading(true);
+    api.changeAvatar({ photo: formData.url }).then((data) => {
+        userInfo.setAvatar({ newAvatar: data.photo });
+        popupWithAvatar.close();
+    }).catch((err) => {
+        console.error(err);
+    }).finally(() => {
+        popupWithAvatar.renderLoading(false);
+    });
 });
 
 const popupWithProfile = new PopupWithForm(
@@ -106,20 +120,40 @@ popupWithProfile.setEventListeners();
 popupWithImage.setEventListeners();
 popupWithCard.setEventListeners();
 
-function handleCardClick (name, link) {
+function handleCardClick(name, link) {
     popupWithImage.open(name, link);
 }
 
-const createCard = ({ name, link }) => { 
-    const card = new Card({ name, link }, handleCardClick, '#elements-template').createCard(); 
+const api = new Api({
+    baseUrl: `https://mesto.nomoreparties.co/v1/cohort-58`,
+    headers: {
+        authorization: 'dcb820d9-699a-4f6b-9c37-9d364ad66199',
+        'Content-Type': 'application/json'
+    }
+});
+
+let userId;
+
+Promise.all([api.getElementsPics(), api.getUserInfo()])
+    .then(([elementsPics, authorInfo]) => {
+        userInfo.setUserInfo(authorInfo);
+        userId = authorInfo._id;
+        cardGallery.renderItems(elementsPics);
+    })
+    .catch((err) => {
+        console.log(`Ошибка: ${err}`);
+    });
+
+const createCard = ({ name, link }) => {
+    const card = new Card({ name, link }, handleCardClick, '#elements-template').createCard();
     return card;
-} 
+}
 
 const cardGallery = new Section({
     items: elementsPics,
-    renderer: ({ name, link }) => { 
-        cardGallery.addItem(createCard({ name, link })); 
-    } 
-}, '.elements__pics'); 
+    renderer: ({ name, link }) => {
+        cardGallery.addItem(createCard({ name, link }));
+    }
+}, '.elements__pics');
 
- cardGallery.renderItems(); 
+cardGallery.renderItems(); 

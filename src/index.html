@@ -13,7 +13,8 @@
     </header>
     <main>
         <section class="profile">
-            <img class="profile__image" src="<%=require('./images/Cousteau.jpg')%>" alt="Кусто">
+            <button class="profile__change" type="button" aria-label="Обновить фото"> <img class="profile__image"
+                    src="<%=require('./images/Cousteau.jpg')%>" alt="Кусто"></button>
             <div class="profile__author">
                 <div class="profile__name">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -76,6 +77,7 @@
             <div class="elements__title">
                 <h2 class="elements__name"></h2>
                 <button type="button" class="elements__like"></button>
+                <p class="elements__likes-counter"></p>
             </div>
         </li>
     </template>
