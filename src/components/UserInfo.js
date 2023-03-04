@@ -1,8 +1,7 @@
 export default class UserInfo {
-    constructor({ name, work, photo }) {
+    constructor({ name, work }) {
         this.name = document.querySelector(name);
         this.work = document.querySelector(work);
-        this.photo = document.querySelector(photo);
     }
 
     getUserInfo() {
@@ -15,20 +14,5 @@ export default class UserInfo {
     setUserInfo(data) {
         this.name.textContent = data.name;
         this.work.textContent = data.work;
-        this.photo.src = data.photo;
-        this._userId = userId;
-    }
-
-    changeUserInfo(data) {
-        this.name.textContent = data.name;
-        this.work.textContent = data.work;
-    }
-
-    setNewPhoto({ newPhoto }) {
-        this.photo.src = newPhoto;
-    }
-
-    getUserId() {
-        return this._userId;
     }
 }
