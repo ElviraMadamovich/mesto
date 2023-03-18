@@ -5,7 +5,7 @@
     background-position: center;
     background-size: 10px 10px;
     min-width: 22px;
-    min-height: 22px;
+    max-height: 22px;
     outline: 1px solid rgba(255, 255, 255, 1);
     background-color: black;
     margin: 15px 0 0 0;

@@ -5,10 +5,6 @@ export default class UserInfo {
         this.avatar = document.querySelector(avatar);
     }
 
-    setUserAvatar(data) {
-        this.avatar.src = data.avatar;
-    }
-
     getUserInfo() {
         return {
             name: this.name.textContent,
@@ -16,8 +12,14 @@ export default class UserInfo {
         }
     }
 
-    setUserInfo(data) {
+    setUserName(data) {
         this.name.textContent = data.name;
-        this.work.textContent = data.work;
+    }
+    setUserWork(data) {
+        this.work.textContent = data.about;
+    }
+
+    setUserAvatar(data) {
+        this.avatar.src = data.avatar;
     }
 }

@@ -1,6 +1,5 @@
-.popup__form {
-    width: 100%;
-    max-width: 358px;
+.confirmation-popup__form {
+    min-width: 358px;
     margin: 0;
     box-sizing: border-box;
     padding: 0;
@@ -8,7 +7,7 @@
 }
 
 @media screen and (max-width: 1000px) {
-    .popup__form {
-        max-width: 238px;
+    .confirmation-popup__form {
+        min-width: 238px;
     }
 }
