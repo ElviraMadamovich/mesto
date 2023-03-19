@@ -18,7 +18,7 @@
 .elements__like_active{background-image:url(fe17a515669479b1e649.svg)}.elements__like_active:hover{opacity:1}
 .elements__likes-qty{color:#000;font-size:13px;font-weight:400;line-height:15.73px;margin:0 20px 22px 244px;padding:0;text-align:center}
 .elements__name{color:#000;font-size:24px;font-weight:900;grid-row:2;line-height:29px;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:75%}
-.elements__pic{background-color:#fff;border-radius:10px;margin:0;max-width:282px;padding:0;position:relative}@media screen and (max-width:1000px){.elements__pic{grid-column:1;height:100%;min-height:362px;width:100%}}
+.elements__pic{background-color:#fff;border-radius:10px;margin:0;max-width:282px;padding:0;position:relative}@media screen and (max-width:1000px){.elements__pic{grid-column:1;height:100%;min-height:361px;width:100%}}
 .elements__pics{align-self:center;box-sizing:border-box;-moz-column-gap:17px;column-gap:17px;display:grid;grid-auto-flow:dense;grid-template-columns:repeat (1,282px);grid-template-rows:repeat (6,361px);justify-content:center;list-style-type:none;margin:0;padding:0;row-gap:20px;width:100%}@media screen and (min-width:1001px){.elements__pics{grid-template-columns:repeat(3,282px);grid-template-rows:repeat(2,362px)}}
 .elements__delete{all:unset;background-image:url(823b0cf1b0b7e9cb7cad.svg);background-position:50%;background-repeat:no-repeat;background-size:18px 19px;cursor:pointer;display:none;margin:0;min-height:19px;min-width:18px;padding:0;position:absolute;right:20px;top:20px;transition:.2s}.elements__delete:hover{opacity:.5}
 .elements__delete_inactive{display:block}
