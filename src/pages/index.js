@@ -1,5 +1,23 @@
 import './index.css';
 
+import {
+    editButton,
+    popupName,
+    popupWork,
+    cardPopupForm,
+    profilePopupForm,
+    avatarPopupForm,
+    addButton,
+    avatarButton,
+    profileSubmitButton,
+    avatarSubmitButton,
+    deleteSubmitButton,
+    cardSubmitButton,
+    settings,
+    apiConfig,
+    elementsPics
+} from "../utils/constants.js";
+
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import Section from "../components/Section.js";
@@ -8,70 +26,6 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 import Api from "../components/Api.js";
-
-const editButton = document.querySelector('.profile__edit');
-const popupName = document.querySelector('.popup__content_input_name');
-const popupWork = document.querySelector('.popup__content_input_work');
-const cardPopupForm = document.querySelector('.card-popup__form');
-const profilePopupForm = document.querySelector('.profile-popup__form');
-const avatarPopupForm = document.querySelector('.avatar-popup__form');
-const addButton = document.querySelector('.profile__button');
-const avatarButton = document.querySelector('.profile__button-avatar');
-const profileSubmitButton = document.querySelector('#profile-submit');
-const avatarSubmitButton = document.querySelector('#avatar-submit');
-const deleteSubmitButton = document.querySelector('#delete-submit');
-const cardSubmitButton = document.querySelector('#card-submit');
-const kaspijskoe_more = new URL('../images/kaspijskoe_more.jpg', import.meta.url);
-const barentsevo_more = new URL('../images/barentsevo_more.jpg', import.meta.url);
-const yaponskoye_more = new URL('../images/yaponskoye_more.jpg', import.meta.url);
-const chernoye_more = new URL('../images/chernoye_more.jpg', import.meta.url);
-const baltiyskoye_more = new URL('../images/baltiyskoye_more.jpg', import.meta.url);
-const okhotskoye_more = new URL('../images/okhotskoye_more.jpg', import.meta.url);
-
-const settings = {
-    formSelector: ".popup__form",
-    inputSelector: ".popup__content",
-    inputError: "popup__content_error_active",
-    submitButtonSelector: ".popup__confirm",
-    inactiveButtonClass: "popup__confirm_disabled",
-    inputErrorClass: "popup__error",
-    errorClass: "popup__error_active",
-};
-
-const elementsPics = [
-    {
-        name: 'Каспийское море',
-        link: kaspijskoe_more
-    },
-    {
-        name: 'Баренцево море',
-        link: barentsevo_more
-    },
-    {
-        name: 'Японское море',
-        link: yaponskoye_more
-    },
-    {
-        name: 'Чёрное море',
-        link: chernoye_more
-    },
-    {
-        name: 'Балтийское море',
-        link: baltiyskoye_more
-    },
-    {
-        name: 'Охотское море',
-        link: okhotskoye_more
-    }
-];
-
-const apiConfig = {
-    url: 'https://mesto.nomoreparties.co/v1/cohort-61',
-    headers: {
-        authorization: '794ac1be-5763-4261-9759-e13254ae56ae',
-        'Content-Type': 'application/json',
-    },
-};
 
 const api = new Api(apiConfig);
 
@@ -219,19 +173,18 @@ popupForAvatar.setEventListeners();
 
 editButton.addEventListener('click', () => {
     const authorInfo = userData.getUserInfo();
-    popupName.value = authorInfo.name;
-    popupWork.value = authorInfo.work;
-    profileValidator.toggleButtonState();
+    popupWithProfile.setInputValues(authorInfo);
+    profileValidator.resetValidation();
     popupWithProfile.open();
 });
 
 addButton.addEventListener('click', () => {
-    newCardValidator.toggleButtonState();
+    newCardValidator.resetValidation();
     popupWithCard.open();
 });
 
 avatarButton.addEventListener('click', () => {
-    avatarValidator.toggleButtonState();
+    avatarValidator.resetValidation();
     popupForAvatar.open();
 });
 
