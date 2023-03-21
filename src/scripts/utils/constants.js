@@ -10,12 +10,13 @@ export const profileSubmitButton = document.querySelector('#profile-submit');
 export const avatarSubmitButton = document.querySelector('#avatar-submit');
 export const deleteSubmitButton = document.querySelector('#delete-submit');
 export const cardSubmitButton = document.querySelector('#card-submit');
-export const kaspijskoe_more = new URL('../images/kaspijskoe_more.jpg', import.meta.url);
-export const barentsevo_more = new URL('../images/barentsevo_more.jpg', import.meta.url);
-export const yaponskoye_more = new URL('../images/yaponskoye_more.jpg', import.meta.url);
-export const chernoye_more = new URL('../images/chernoye_more.jpg', import.meta.url);
-export const baltiyskoye_more = new URL('../images/baltiyskoye_more.jpg', import.meta.url);
-export const okhotskoye_more = new URL('../images/okhotskoye_more.jpg', import.meta.url);
+
+const kaspijskoe_more = new URL('../../images/kaspijskoe_more.jpg', import.meta.url); 
+const barentsevo_more = new URL('../../images/barentsevo_more.jpg', import.meta.url);
+const yaponskoye_more = new URL('../../images/yaponskoye_more.jpg', import.meta.url);
+const chernoye_more = new URL('../../images/chernoye_more.jpg', import.meta.url);
+const baltiyskoye_more = new URL('../../images/baltiyskoye_more.jpg', import.meta.url);
+const okhotskoye_more = new URL('../../images/okhotskoye_more.jpg', import.meta.url);
 
 export const settings = {
     formSelector: ".popup__form",

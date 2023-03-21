@@ -2,30 +2,25 @@ import './index.css';
 
 import {
     editButton,
-    popupName,
-    popupWork,
     cardPopupForm,
     profilePopupForm,
     avatarPopupForm,
     addButton,
     avatarButton,
-    profileSubmitButton,
-    avatarSubmitButton,
     deleteSubmitButton,
-    cardSubmitButton,
     settings,
     apiConfig,
     elementsPics
-} from "../utils/constants.js";
+} from "../scripts/utils/constants.js";
 
-import FormValidator from "../components/FormValidator.js";
-import Card from "../components/Card.js";
-import Section from "../components/Section.js";
-import UserInfo from "../components/UserInfo.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import PopupWithImage from "../components/PopupWithImage.js";
-import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
-import Api from "../components/Api.js";
+import FormValidator from "../scripts/components/FormValidator.js";
+import Card from "../scripts/components/Card.js";
+import Section from "../scripts/components/Section.js";
+import UserInfo from "../scripts/components/UserInfo.js";
+import PopupWithForm from "../scripts/components/PopupWithForm.js";
+import PopupWithImage from "../scripts/components/PopupWithImage.js";
+import PopupWithConfirmation from "../scripts/components/PopupWithConfirmation.js";
+import Api from "../scripts/components/Api.js";
 
 const api = new Api(apiConfig);
 
@@ -111,7 +106,7 @@ const popupWithProfile = new PopupWithForm(
     {
         popupSelector: '.profile-popup',
         submit: (data) => {
-            profileSubmitButton.textContent = 'Сохранение...';
+            popupWithProfile.showLoadingText(true);
             api.updateDetails(data)
                 .then((userDetails) => {
                     userData.setUserName(userDetails);
@@ -122,7 +117,7 @@ const popupWithProfile = new PopupWithForm(
                     console.log(err);
                 })
                 .finally(() => {
-                    profileSubmitButton.textContent = 'Сохранить';
+                    popupWithProfile.showLoadingText(false);
                 })
         }
     });
@@ -133,7 +128,7 @@ const popupWithCard = new PopupWithForm(
     {
         popupSelector: '.card-popup',
         submit: (cardInfo) => {
-            cardSubmitButton.textContent = 'Создание...';
+            popupWithCard.showLoadingText(true);
             api.addNewCard(cardInfo)
                 .then((data) => {
                     cardGallery.addItemPrepend(createCard(data, data.owner._id));
@@ -143,7 +138,7 @@ const popupWithCard = new PopupWithForm(
                     console.log(err);
                 })
                 .finally(() => {
-                    cardSubmitButton.textContent = 'Создать';
+                    popupWithCard.showLoadingText(false);
                 })
         }
     })
@@ -154,7 +149,7 @@ const popupForAvatar = new PopupWithForm(
     {
         popupSelector: '.avatar-popup',
         submit: (formValues) => {
-            avatarSubmitButton.textContent = 'Сохранение...';
+            popupForAvatar.showLoadingText(true);
             api.changeUserAvatar(formValues)
                 .then((avatar) => {
                     userData.setUserAvatar(avatar);
@@ -164,7 +159,7 @@ const popupForAvatar = new PopupWithForm(
                     console.log(err);
                 })
                 .finally(() => {
-                    avatarSubmitButton.textContent = 'Сохранить';
+                    popupForAvatar.showLoadingText(false);
                 })
         }
     })
